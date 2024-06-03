@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit</title>
+  <link rel="stylesheet" href="/styles/edit.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <form action="/edit" method="POST" enctype="multipart/form-data">
+        <img src="<%= profileImage %>" alt="" id="profile-pic">
+        <input type="text" name="username" value="<%= user.username %>">
+        <input type="text" name="fullname" value="<%= user.fullname %>">
+        <textarea class="description" type="text" name="description" placeholder="description" maxlength="150"><%= user.description%></textarea>
+        <input type="text" hidden value="<%= profileImage %>" name="profileImage">
+        <input type="file" id="fileInput" name="image">
+        <input type="submit" value="Save Changes" accept="image/jpeg, image/png, image/jpg">
+        <a href="/profile<%= user.id %>"><input type="button" value="Cancel"></a>
+      </form>
+    </div>
+  </div>
+  <script>
+    let profilePic = document.getElementById("profile-pic");
+    let inputFile = document.getElementById("fileInput");
+    inputFile.onchange = function() {
+      profilePic.src = URL.createObjectURL(inputFile.files[0]);
+    }
+  </script>
+</body>
+
+</html>

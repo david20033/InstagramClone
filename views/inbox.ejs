@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles/inbox.css">
+  <link rel="stylesheet" href="styles/menu.css">
+</head>
+
+<body>
+  <%- include('./components/menu', {id: currUserId}) %>
+  <div class="container">
+    <div class="chatSection">
+      <% for(var i=0;i<messages.length;i++){ %>
+      <a href="/inbox<%=messages[i].id%>">
+        <div class="chatBox">
+          <img class="profileImage" src="<%= ChatProfileImagesSRC[i] %>" alt="">
+          <p class="name"><b><%= messages[i].fullname %></b></p>
+          <p class="lastMessage"><%= messages[i].message_text %></p>
+        </div>
+      </a>
+      <% } %>
+    </div>
+    <% if(locals.currUser) {%>
+    <div class="chatWithPersonSection">
+      <div class="header">
+        <img src="<%= currUserProfilePicSRC %>" alt="">
+        <p><b><%= currUser.fullname %></b></p>
+      </div>
+      <div class="messageBox">
+        <div class="messageFlexBox">
+          <% for(var i=0; i<convers.length;i++){ %>
+          <% if(convers[i].from_id!=currUser.id) {%>
+          <div class="message right">
+            <p><%= convers[i].message_text %></p>
+          </div>
+          <% } else { %>
+          <div class="message left">
+            <p><%= convers[i].message_text %></p>
+          </div>
+          <%} } %>
+        </div>
+      </div>
+      <div class="chatTextBox">
+        <form action="/sent" method="POST">
+          <input type="text" hidden name="to_id" value="<%= currUser.id %>">
+          <input type="text" name="message" placeholder="type something...." maxlength="100">
+          <input type="submit" value="Sent" name="submit">
+        </form>
+      </div>
+    </div>
+  </div>
+  <% } else { %>
+  <div class="chatWithPersonSection">
+    <p>Select User!</p>
+  </div>
+  </div>
+  <% } %>
+  </div>
+  <script>
+    var messageFlexBox = document.querySelector('.messageFlexBox');
+    messageFlexBox.scrollTop = messageFlexBox.scrollHeight;
+  </script>
+</body>
+
+</html>

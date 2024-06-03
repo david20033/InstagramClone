@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/menu.css">
+</head>
+
+<body>
+  <div class="container">
+    <%- include('./components/menu', {id: currUserId}) %>
+    <div class="feedComponent">
+      <!-- <div class="storySection">
+        <div class="story">
+          <img class="storyImage" src="images/people1.jpg" alt="">
+          <p class="storyName">human1</p>
+        </div>
+        <div class="story">
+          <img class="storyImage" src="images/people1.jpg" alt="">
+          <p class="storyName">human1</p>
+        </div>
+      </div> -->
+      <div class="postSection">
+        <% for(var i=0; i<postsArr.length;i++){ %>
+        <div class="post" id="<%=postsArr[i].id  %>">
+          <div class="postColumnHeader">
+            <img class="postProfileImage" src="data:image/png;base64,<%= Buffer.from(postsArr[i].profileimage).toString("base64") %>" alt="">
+            <p class="postName"><%= postsArr[i].username %></p>
+            <p class="postDate"><%= postsArr[i].upload_date.toISOString() %></p>
+          </div>
+          <img class="postImage" src="data:image/png;base64,<%= Buffer.from(postsArr[i].imagedata).toString("base64") %>" alt="">
+          <div class="postColumnButtons">
+            <% if(likedPosts.some(obj => obj["post_id"] == postsArr[i].id)) { %>
+            <img class="postLike button" src="images/buttons/likeButton-trigired.png" alt="">
+            <% } else { %>
+            <img class="postLike button" src="images/buttons/likeButton-untrigired.png" alt="">
+            <% } %>
+            <!-- <img class="Comment button" src="images/buttons/comment.png" alt="">
+            <img class="postShare button" src="images/buttons/share.png" alt=""> -->
+          </div>
+          <!-- <img class="postSave button" src="images/buttons/save.png" alt=""> -->
+          <p class="postLikes"><b><%= postsArr[i].likes %> Likes</b></p>
+          <!-- <a class="viewAllComments" href="">View all comments</a>
+          <a class="addComment" href="">addComment...</a> -->
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Add event listener to the postLike button in each post
+    var postLikeButtons = document.querySelectorAll('.postLike');
+    postLikeButtons.forEach(function(button) {
+      button.addEventListener('click', async function(event) {
+        event.preventDefault(); // Prevent the default behavior of the link (e.g., navigating to another page)
+
+
+        var postId = this.closest('.post').id;
+        var currentPost = document.getElementById(postId);
+        var likes = currentPost.getElementsByClassName("postLikes")[0];
+        console.log(currentPost.getElementsByClassName("postLike")[0].src);
+        if (currentPost.getElementsByClassName("postLike")[0].src == "http://localhost:3000/images/buttons/likeButton-untrigired.png") {
+          const response = await fetch('/like', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                postId: postId,
+                newLikes: parseInt(likes.innerText.slice(0, 1)) + 1,
+              })
+            })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              currentPost.getElementsByClassName("postLike")[0].src = "images/buttons/likeButton-trigired.png";
+              likes.innerText = parseInt(likes.innerText.slice(0, 1)) + 1 + " Likes";
+              likes.style.fontWeight = "900";
+              return response.json();
+            })
+            .then(data => {
+              // Handle the response from the backend
+              alert(data)
+              console.log(data);
+              // Optionally, navigate to another page based on the response
+              // window.location.href = '/new-page';
+            })
+            .catch(error => {
+              // Handle errors that may occur during the fetch
+              console.error('There was a problem with the fetch operation:', error);
+            });
+        } else {
+          const response = await fetch('/dislike', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                postId: postId,
+                newLikes: parseInt(likes.innerText.slice(0, 1)) - 1,
+              })
+            })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              currentPost.getElementsByClassName("postLike")[0].src = "images/buttons/likeButton-untrigired.png";
+              likes.innerText = parseInt(likes.innerText.slice(0, 1)) - 1 + " Likes";
+              likes.style.fontWeight = "900";
+              return response.json();
+            })
+            .then(data => {
+              // Handle the response from the backend
+              alert(data)
+              console.log(data);
+              // Optionally, navigate to another page based on the response
+              // window.location.href = '/new-page';
+            })
+            .catch(error => {
+              // Handle errors that may occur during the fetch
+              console.error('There was a problem with the fetch operation:', error);
+            });
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

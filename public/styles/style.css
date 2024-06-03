@@ -1,0 +1,170 @@
+/* .container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+} */
+/* .menuBarComponent {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  border-right: 1px solid rgb(115, 115, 115);
+  padding-right: 35px;
+  padding-left: 20px;
+  height: 100vh;
+}
+.menuButton {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.menuButton > a {
+  display: flex;
+  gap: 15px;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  opacity: 1;
+  transition: 0.3s;
+  width: 170px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.menuButton > a:hover {
+  background-color: #dad9d9;
+  opacity: 3;
+}
+.menuButton > h2 {
+  margin: 0px;
+}
+.menuButton img {
+  width: 32px;
+  height: 32px;
+  margin: 20px 0px;
+}
+.menuButton .profileImage {
+  border-radius: 50%;
+} */
+.feedComponent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+/* .storySection {
+  display: flex;
+  gap: 15px;
+  width: 50%;
+}
+.story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.storyImage {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+.storyName {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+} */
+.postSection {
+}
+.post {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 0.1fr 1fr;
+  grid-template-rows: 0.2fr 3fr 0.3fr;
+  gap: 10px;
+  margin-bottom: 50px;
+  border-bottom: solid rgb(115, 115, 115) 1px;
+  max-width: 500px;
+}
+.postColumnHeader {
+  display: flex;
+  gap: 10px;
+  grid-column: span 2;
+}
+.postProfileImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.postName,
+.postDate {
+  display: flex;
+  align-items: center;
+}
+.postImage {
+  grid-column: span 2;
+  width: 100%;
+  border-radius: 3px;
+  /* max-width: 400px; */
+  height: 407px;
+}
+.postColumnButtons {
+  display: flex;
+  gap: 15px;
+}
+.postSave,
+.postColumnButtons > .button {
+  width: 42px;
+  height: 42px;
+}
+.postSave {
+  margin: auto;
+}
+.postLikes {
+  margin: auto 0px;
+  font-size: 1.3rem;
+}
+.post a {
+  text-decoration: none;
+  color: rgb(115, 115, 115);
+}
+.viewAllComments {
+  grid-column: span 2;
+}
+.addComment {
+  grid-column: span 2;
+}
+.postName {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 1264px) {
+  .menuButton > a {
+    width: auto;
+    height: fit-content;
+  }
+  .menuButton > a > h2 {
+    display: none;
+  }
+  .menuBarComponent {
+    width: auto;
+  }
+  h1 {
+    display: none;
+  }
+}
+@media only screen and (max-width: 766px) {
+  .menuBarComponent {
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid rgb(115, 115, 115);
+    width: 93%;
+    height: auto;
+    /* position: relative; */
+    top: 87vh;
+    background-color: white;
+  }
+}

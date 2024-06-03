@@ -1,0 +1,173 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* justify-content: center;  */
+  align-items: center;
+  justify-content: center;
+}
+.header {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 0.8fr 1fr 1fr;
+  grid-template-rows: 0.3fr 0.3fr;
+  margin-bottom: 50px;
+  margin-top: 30px;
+  background-color: rgb(230, 230, 230);
+  padding: 20px 60px;
+  border-radius: 20px;
+}
+.header > img {
+  grid-row: span 4;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin-right: 30px;
+}
+.header .nameFollow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  grid-column: span 2;
+}
+
+h3 {
+  width: 200px;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+p {
+  width: 200px;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+.postFollowers {
+  display: flex;
+  gap: 10px;
+  margin: auto;
+}
+.imagesSection {
+  display: flex;
+}
+
+.images {
+  display: grid;
+  grid-template-columns: 250px 250px 250px;
+  grid-auto-rows: 250px;
+  /* grid-template-rows: minmax(100px, 250px) minmax(100px, 250px) minmax(
+      100px,
+      250px
+    ); */
+  gap: 8px;
+  width: 60%;
+}
+.images img {
+  width: 100%;
+  height: 100%;
+}
+.btn {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.24);
+  padding: 12px 28px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #3969d2; /* Green */
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+@media only screen and (max-width: 1100px) {
+  .images {
+    grid-template-columns: 200px 200px 200px;
+    grid-auto-rows: 200px;
+  }
+  .header {
+    width: fit-content;
+    gap: 5px;
+    grid-template-columns: 2fr;
+    grid-template-rows: 0.3fr 0.3fr 0.3fr 0.3fr;
+    margin: 20px;
+  }
+  .header .nameFollow {
+    grid-column: span 1;
+    order: -2;
+  }
+  h3 {
+    order: -1;
+  }
+  .header > img {
+    order: -3;
+  }
+  p {
+    width: 230px;
+  }
+}
+
+@media only screen and (max-width: 870px) {
+  .header {
+    grid-template-columns: 2fr;
+    grid-template-rows: 0.3fr 0.3fr 0.3fr 0.3fr;
+  }
+  .header > img {
+    width: 150px;
+    height: 150px;
+  }
+  .images {
+    min-width: 300px;
+    grid-template-columns: 150px 150px 150px;
+    grid-auto-rows: 150px;
+  }
+  @media only screen and (max-width: 1264px) {
+    .menuButton > a {
+      width: auto;
+      height: fit-content;
+    }
+    .menuButton > a > h2 {
+      display: none;
+    }
+    .menuBarComponent {
+      width: auto;
+    }
+    h1 {
+      display: none;
+    }
+  }
+  @media only screen and (max-width: 766px) {
+    .menuBarComponent {
+      flex-direction: row;
+      justify-content: space-between;
+      border-top: 1px solid rgb(115, 115, 115);
+      width: 93%;
+      height: auto;
+      top: 87vh;
+      background-color: white;
+    }
+    .images {
+      min-width: 300px;
+      grid-template-columns: 130px 130px 130px;
+      grid-auto-rows: 130px;
+    }
+  }
+
+  .images {
+    min-width: 300px;
+    grid-template-columns: 100px 100px 100px;
+    grid-auto-rows: 100px;
+  }
+
+  .header {
+    width: fit-content;
+    padding: 10px 20px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr;
+  }
+  .btn {
+    padding: 5px 10px;
+    margin: 5px;
+  }
+  .header .nameFollow {
+    gap: 3px;
+  }
+}

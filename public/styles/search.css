@@ -1,0 +1,75 @@
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  position: absolute;
+}
+
+.SearchMenu {
+  border: solid rgb(115, 115, 115) 2px;
+  padding: 30px;
+  width: 27%;
+  max-width: 500px;
+  text-align: center;
+  z-index: 1;
+  background-color: white;
+  position: fixed;
+}
+h1 {
+  color: black;
+}
+.close {
+  position: relative;
+  left: 92%;
+  width: fit-content;
+  top: -20px;
+  cursor: pointer;
+  display: flex;
+  background-color: white;
+  border: none;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type="submit"] {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  opacity: 2;
+}
+@media only screen and (max-width: 1000px) {
+  .loginForm {
+    border: solid rgb(115, 115, 115) 2px;
+    padding: 20px;
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .SearchMenu {
+    width: auto;
+  }
+}

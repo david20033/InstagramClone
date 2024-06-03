@@ -1,0 +1,52 @@
+<%- include('./search') %>
+<div class="menuBarComponent">
+  <!-- <h1 class="title">Instagram</h1> -->
+  <div class="menuButton">
+    <a class="searchButton button" href="/">
+      <img src="images/buttons/home.png" alt="">
+      <h2>Home</h2>
+    </a>
+  </div>
+  <div class="menuButton">
+    <a class="button" href="/inbox">
+      <img src="images/buttons/message.png" alt="">
+      <h2>Messages</h2>
+    </a>
+
+  </div>
+  <div class="menuButton">
+    <a class="button" onclick="showSearch()" style="cursor: pointer;">
+      <img src="images/buttons/search.png" alt="">
+      <h2>Search</h2>
+    </a>
+  </div>
+  <div class="menuButton">
+    <a class="button" href="/post">
+      <img src="images/buttons/post.png" alt="">
+      <h2>Post</h2>
+    </a>
+  </div>
+  <div class="menuButton">
+    <a class="button" href="/profile<%=id%>">
+      <img class="profileImage" src="<%= profileImage %>" alt="">
+      <h2>Profile</h2>
+    </a>
+  </div>
+  <div class="menuButton">
+
+    <form class="menuForm" action="/logout" method="POST"><a href="#" onclick="this.parentNode.submit()"></form>
+    <img src="images/buttons/logout.png" alt="">
+    </a>
+    <h2>Logout</h2>
+
+  </div>
+</div>
+<script>
+  function showSearch() {
+    document.getElementsByClassName("searchContainer")[0].style.display = "flex";
+    document.getElementsByClassName("SearchMenu")[0].style.display = "block";
+    document.getElementsByClassName("searchContainer")[0].style.backdropFilter = "blur(5px)";
+    document.getElementsByClassName("menuBarComponent")[0].style.display = "none";
+    document.querySelector('[value="Upload Image"]').style.display = "none";
+  }
+</script>

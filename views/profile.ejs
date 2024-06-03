@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="/styles/profile.css">
+  <link rel="stylesheet" href="/styles/menu.css">
+  <!-- <link rel="stylesheet" href="/styles/search.css"> -->
+</head>
+
+<body>
+  <%- include('./components/menu', {id: currUserId}) %>
+  <div class="container">
+    <div class="headerSection">
+      <div class="header">
+        <% if(currUser.profileimage==null) {%>
+        <img src="images/default.png" alt="">
+        <% } else{%>
+        <img src="<%= VisitedProfileImage %>" alt="">
+        <% } %>
+        <div class="nameFollow">
+          <h2><%= currUser.username %></h2>
+          <% if(button1=="Edit") {%>
+          <a href="/edit"><button class="btn"><%= button1 %></button></a>
+          <% }else{ }%>
+          <a href="/inbox<%=currUser.id%>"><button class="btn">Text</button></a>
+        </div>
+        <p><%= currUser.description %></p>
+        <h3><%= currUser.fullname %></h3>
+      </div>
+    </div>
+    <div class="imagesSection">
+      <div class="images">
+        <% for(var i=imgArr.length-1;i>=0;i--){ %>
+        <img src="<%= imgArr[i] %>" alt="">
+        <% } %>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

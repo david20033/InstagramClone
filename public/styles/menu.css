@@ -1,0 +1,173 @@
+.SearchMenu {
+  display: none;
+}
+.searchContainer {
+}
+.searchh1 {
+  display: block !important;
+}
+.searchContainer {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  position: fixed;
+}
+
+.SearchMenu {
+  border: solid rgb(115, 115, 115) 2px;
+  padding: 30px;
+  width: 27%;
+  max-width: 500px;
+  text-align: center;
+  background-color: white;
+  position: fixed;
+}
+.title {
+  color: black;
+}
+.close {
+  position: relative;
+  left: 92%;
+  width: fit-content;
+  top: -20px;
+  cursor: pointer;
+  display: flex;
+  background-color: white;
+  border: none;
+}
+.menuForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type="submit"] {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  opacity: 2;
+}
+@media only screen and (max-width: 1000px) {
+  .loginForm {
+    border: solid rgb(115, 115, 115) 2px;
+    padding: 20px;
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .SearchMenu {
+    width: auto;
+  }
+}
+
+.menuBarComponent {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  position: fixed;
+  top: 0;
+  border-right: 1px solid rgb(115, 115, 115);
+  padding-right: 35px;
+  padding-left: 20px;
+  height: 100vh;
+  width: auto;
+  justify-content: space-around;
+}
+
+.button {
+  display: flex;
+  gap: 15px;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  opacity: 1;
+  transition: 0.3s;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.button:hover {
+  background-color: #dad9d9;
+  opacity: 3;
+}
+
+.menuButton img {
+  width: 40px;
+  height: 40px;
+}
+.menuButton h2 {
+  display: none;
+}
+.menuButton > .profileImage {
+  border-radius: 50%;
+}
+.profileImage {
+  grid-row: span 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 1264px) {
+  .button {
+    width: auto;
+    height: fit-content;
+  }
+  .button > h2 {
+    display: none;
+  }
+  .menuBarComponent {
+    width: auto;
+  }
+  .title {
+    display: none;
+  }
+}
+@media only screen and (max-width: 766px) {
+  .menuBarComponent {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-top: 1px solid rgb(115, 115, 115);
+    width: 93%;
+    height: 10vh;
+    /* position: relative; */
+    top: 92%;
+    background-color: white;
+  }
+  form > a > img {
+    margin-top: 8px;
+    width: 3px;
+  }
+  .button img {
+    width: 35px;
+    height: 35px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .menuBarComponent {
+    gap: 3px;
+    padding-left: 0px;
+  }
+}

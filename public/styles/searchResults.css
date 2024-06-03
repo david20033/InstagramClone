@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.result {
+  max-width: 60%;
+  border: 1px solid black;
+  opacity: 1;
+  transition: 0.3s;
+  padding-left: 40px;
+  overflow: hidden;
+}
+.result:hover {
+  background-color: #dad9d9;
+  opacity: 3;
+  cursor: pointer;
+}
+.resultLink {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 1fr 1fr;
+  text-decoration: none;
+  color: black;
+}
+.resultImage {
+  grid-row: span 2;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: auto;
+  margin-right: 40px;
+}
+.resultUserName,
+.resultFullName {
+  margin-bottom: 0;
+}
+.resultFullName {
+  color: rgb(111, 111, 111);
+  font-weight: 200;
+  margin-top: 10px;
+}
+@media only screen and (max-width: 660px) {
+  .result {
+    padding: 0;
+    max-width: 80%;
+  }
+  .resultImage {
+    margin: auto;
+  }
+}

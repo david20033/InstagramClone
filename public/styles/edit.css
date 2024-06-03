@@ -1,0 +1,111 @@
+/* .container {
+  max-width: 100%;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+img {
+  width: 200px;
+  height: 200px;
+} */
+
+body {
+  background-color: rgb(230, 230, 230);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.card {
+  border: solid rgb(115, 115, 115) 2px;
+  padding: 30px;
+  width: 27%;
+  max-width: 500px;
+  text-align: center;
+  background-color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type="submit"] {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  opacity: 2;
+}
+input[type="button"] {
+  background-color: rgb(115, 114, 115);
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+input[type="button"]:hover {
+  opacity: 2;
+}
+.description {
+  height: 54px;
+  resize: none;
+}
+img {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}
+@media only screen and (max-width: 1000px) {
+  .loginForm,
+  .redirect {
+    border: solid rgb(115, 115, 115) 2px;
+    padding: 20px;
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .card {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}

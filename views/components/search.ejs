@@ -1,0 +1,19 @@
+<div class="searchContainer">
+  <div class="SearchMenu">
+    <button onclick="hideVisiable()" class="close">&#10060;</button>
+    <h1 class="searchh1">Search...</h1>
+    <form action="/search" method="POST">
+      <input type="text" placeholder="Search user...." name="search">
+      <input type="submit" name="submit" value="Go">
+    </form>
+  </div>
+</div>
+<script>
+  function hideVisiable() {
+    document.getElementsByClassName("searchContainer")[0].style.display = "none";
+    document.getElementsByClassName("SearchMenu")[0].style.display = "none";
+    document.getElementsByClassName("searchContainer")[0].style.backdropFilter = "none";
+    document.getElementsByClassName("menuBarComponent")[0].style.display = "flex    ";
+    document.querySelector('[value="Upload Image"]').style.display = "inline-block";
+  }
+</script>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://localhost:3000/post -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post</title>
+  <link rel="stylesheet" href="./Post_files/menu.css">
+  <link rel="stylesheet" href="./Post_files/post.css">
+<style type="text/css" id="country-flag-fixer-ext">
+    @font-face {
+        font-family: "Twemoji Country Flags";
+        font-style: normal;
+        src: url('chrome-extension://jhcpefjbhmbkgjgipkhndplfbhdecijh/assets/TwemojiCountryFlags.woff2') format('woff2');
+        unicode-range: U+1F1E6-1F1FF, U+1F3F4, U+E0062-E0063, U+E0065, U+E0067, U+E006C, U+E006E, U+E0073-E0074, U+E0077, U+E007F;
+    }
+
+    @font-face {
+        font-family: "Twemoji Country Flags";
+        font-style: italic; /* Defined to prevent italic styled flags */
+        src: url('chrome-extension://jhcpefjbhmbkgjgipkhndplfbhdecijh/assets/TwemojiCountryFlags.woff2') format('woff2');
+        unicode-range: U+1F1E6-1F1FF, U+1F3F4, U+E0062-E0063, U+E0065, U+E0067, U+E006C, U+E006E, U+E0073-E0074, U+E0077, U+E007F;
+    }
+</style></head>
+
+<body>
+  <div class="searchContainer">
+  <div class="SearchMenu">
+    <button onclick="hideVisiable()" class="close">❌</button>
+    <h1 class="searchh1">Search...</h1>
+    <form action="http://localhost:3000/search" method="POST">
+      <input type="text" placeholder="Search user...." name="search">
+      <input type="submit" name="submit" value="Go">
+    </form>
+  </div>
+</div>
+<script>
+  function hideVisiable() {
+    document.getElementsByClassName("searchContainer")[0].style.display = "none";
+    document.getElementsByClassName("SearchMenu")[0].style.display = "none";
+    document.getElementsByClassName("searchContainer")[0].style.backdropFilter = "none";
+    document.getElementsByClassName("menuBarComponent")[0].style.display = "flex    ";
+    document.querySelector('[value="Upload Image"]').style.display = "inline-block";
+  }
+</script>
+<div class="menuBarComponent">
+  <!-- <h1 class="title">Instagram</h1> -->
+  <div class="menuButton">
+    <a class="searchButton button" href="http://localhost:3000/">
+      <img src="./Post_files/home.png" alt="">
+      <h2>Home</h2>
+    </a>
+  </div>
+  <div class="menuButton">
+    <a class="button" href="http://localhost:3000/inbox">
+      <img src="./Post_files/message.png" alt="">
+      <h2>Messages</h2>
+    </a>
+
+  </div>
+  <div class="menuButton">
+    <a class="button" onclick="showSearch()">
+      <img src="./Post_files/notification.png" alt="">
+      <h2>Notifications</h2>
+    </a>
+  </div>
+  <div class="menuButton">
+    <a class="button" href="http://localhost:3000/post">
+      <img src="./Post_files/post.png" alt="">
+      <h2>Post</h2>
+    </a>
+  </div>
+  <div class="menuButton">
+    <a class="button" href="http://localhost:3000/profile">
+      <img class="profileImage" src="./Post_files/people1.jpg" alt="">
+      <h2>Profile</h2>
+    </a>
+  </div>
+  <div class="menuButton">
+    <a class="button">
+      </a><form class="menuForm" action="http://localhost:3000/logout" method="POST"><a class="button"></a><a href="http://localhost:3000/post#" onclick="this.parentNode.submit()">
+      <img src="./Post_files/more.png" alt="">
+      <h2>More...</h2>
+    </a></form>
+  </div>
+</div>
+<script>
+  function showSearch() {
+    document.getElementsByClassName("searchContainer")[0].style.display = "flex";
+    document.getElementsByClassName("SearchMenu")[0].style.display = "block";
+    document.getElementsByClassName("searchContainer")[0].style.backdropFilter = "blur(5px)";
+    document.getElementsByClassName("menuBarComponent")[0].style.display = "none";
+    document.querySelector('[value="Upload Image"]').style.display = "none";
+  }
+</script>
+  <div class="container">
+    <form action="http://localhost:3000/post" method="POST" enctype="multipart/form-data">
+      <input type="file" id="fileInput" name="image">
+      <input type="submit" value="Upload Image" accept="image/jpeg, image/png, image/jpg">
+    </form>
+  </div>
+
+<script>
+</script>
+
+</body></html>

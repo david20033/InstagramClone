@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results</title>
+  <link rel="stylesheet" href="/styles/searchResults.css">
+  <link rel="stylesheet" href="/styles/menu.css">
+</head>
+
+<body>
+  <%- include('./components/menu', {id: currUserId}) %>
+  <div class="container">
+    <% if(!locals.results){ %>
+    <h1>No Results!</h1>
+    <% } else {%>
+    <h1>Results</h1>
+    <% for(var i=0;i<results.length;i++){ %>
+    <div class="result">
+      <a class="resultLink" href="/profile<%=results[i].id%>">
+        <img class="resultImage" src="<%= ImagesURL[i] %>" alt="">
+        <h2 class="resultUserName"><%=results[i].username %></h2>
+        <h3 class="resultFullName"><%=results[i].fullname %></h3>
+      </a>
+    </div>
+    <% } }%>
+  </div>
+</body>
+
+</html>
