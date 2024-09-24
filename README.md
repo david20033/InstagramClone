@@ -58,6 +58,6 @@ $ node index.js
 - Better desing
 - Much more...
 ## Contributing
-Contributions are welcome! Please fork the repository and submit a pull request with your changes. Ensure to follow the coding standards and include appropriate tests.
+Contributions are welcome! Please fork the repository and submit a pull request with your changes.
 ## Acknowledgments
 Inspired by the functionalities of Instagram.
